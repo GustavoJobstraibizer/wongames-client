@@ -1,0 +1,12 @@
+import { render, screen } from '@testing-library/react'
+import {{pascalCase name}} from '.'
+
+describe('{{pascalCase name}}', () => {
+  it('should render {{pascalCase name}} component', () => {
+    const { container } = render(<{{pascalCase name}} />)
+
+    expect(screen.getByText(/React Avançado/i)).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
+})
