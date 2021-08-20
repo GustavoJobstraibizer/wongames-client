@@ -13,6 +13,11 @@ export default {
   },
   parameters: {
     layout: 'fullscreen'
+  },
+  argTypes: {
+    ribbon: {
+      type: 'string'
+    }
   }
 } as Meta
 
