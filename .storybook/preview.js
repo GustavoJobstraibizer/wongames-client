@@ -5,8 +5,24 @@ import theme from 'styles/theme';
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <GlobalStyles removeBg />
       <Story />
     </ThemeProvider>
   ),
 ];
+
+export const parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: theme.colors.white,
+      },
+      {
+        name: 'dark',
+        value: theme.colors.mainBg,
+      },
+    ],
+  },
+};
