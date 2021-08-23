@@ -1,16 +1,11 @@
 import { Meta, Story } from '@storybook/react'
 import Highlight, { HighlightProps } from '.'
+import item from './mock'
 
 export default {
   title: 'Highlight',
   component: Highlight,
-  args: {
-    title: 'Read dead its back',
-    subtitle: 'Come seen Jhons new adventures',
-    buttonLabel: 'Buy now',
-    buttonLink: '/rdr2',
-    backgroundImage: '/img/red-dead-img.jpg'
-  },
+  args: item,
   parameters: {
     layout: 'fullscreen'
   }
