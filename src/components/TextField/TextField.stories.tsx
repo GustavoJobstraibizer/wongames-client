@@ -3,7 +3,7 @@ import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 import TextField, { TextFieldProps } from '.'
 
 export default {
-  title: 'TextField',
+  title: 'Form/TextField',
   component: TextField,
   args: {
     label: 'Name',
