@@ -36,7 +36,7 @@ describe('Menu', () => {
   it('should show register box when logged out', () => {
     renderWithTheme(<Menu />)
 
-    expect(screen.getByText(/log in now/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
   })
 
@@ -44,7 +44,7 @@ describe('Menu', () => {
     renderWithTheme(<Menu username="Jobs" />)
 
     // when the expect is an negation, use queryByText instead of getByText
-    expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
     expect(screen.getByText(/my account/i)).toBeInTheDocument()
     expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
