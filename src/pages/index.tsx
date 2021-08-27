@@ -12,10 +12,10 @@ export async function getStaticProps() {
     props: {
       banners: bannersMock,
       newGames: gamesMock,
-      mostPopularHighligth: highligthMock,
+      mostPopularHighlight: highligthMock,
       mostPopularGames: gamesMock,
       upcommingGames: gamesMock,
-      upcommingHighligth: highligthMock,
+      upcommingHighlight: highligthMock,
       upcommingMoreGames: gamesMock,
       freeGames: gamesMock,
       freeHighlight: highligthMock
