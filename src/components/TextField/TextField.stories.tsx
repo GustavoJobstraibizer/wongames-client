@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
+import { Email } from '@styled-icons/material-outlined'
 import TextField, { TextFieldProps } from '.'
 
 export default {
@@ -30,7 +30,7 @@ export const withIcon: Story<TextFieldProps> = (args) => (
 )
 
 withIcon.args = {
-  icon: <EmailOutline />
+  icon: <Email />
 }
 
 export const withError: Story<TextFieldProps> = (args) => (
@@ -41,5 +41,5 @@ export const withError: Story<TextFieldProps> = (args) => (
 
 withError.args = {
   error: 'Something went wrong...',
-  icon: <EmailOutline />
+  icon: <Email />
 }
