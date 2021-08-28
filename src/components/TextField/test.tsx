@@ -1,4 +1,4 @@
-import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
+import { Email } from '@styled-icons/material-outlined'
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import theme from 'styles/theme'
@@ -72,7 +72,7 @@ describe('TextField', () => {
   })
 
   it('should render with icon', () => {
-    renderWithTheme(<TextField icon={<EmailOutline data-testid="icon" />} />)
+    renderWithTheme(<TextField icon={<Email data-testid="icon" />} />)
 
     expect(screen.getByTestId('icon')).toBeInTheDocument()
 
@@ -83,10 +83,7 @@ describe('TextField', () => {
 
   it('should render with icon to the right', () => {
     renderWithTheme(
-      <TextField
-        icon={<EmailOutline data-testid="icon" />}
-        iconPosition="right"
-      />
+      <TextField icon={<Email data-testid="icon" />} iconPosition="right" />
     )
 
     expect(screen.getByTestId('icon')).toBeInTheDocument()
