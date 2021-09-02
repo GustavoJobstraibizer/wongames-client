@@ -8,7 +8,8 @@ const props: GameDetailsProps = {
   platforms: gameDetailsMock.platforms as Platform[],
   releaseDate: gameDetailsMock.releaseDate,
   rating: 'BR0',
-  genres: ['Role-playing', 'Action']
+  genres: ['Role-playing', 'Action'],
+  publisher: 'CD PROJECT RED'
 }
 
 describe('GameDetails', () => {
@@ -46,6 +47,18 @@ describe('GameDetails', () => {
     renderWithTheme(<GameDetails {...props} />)
 
     expect(screen.getByText('Aug 28, 2021')).toBeInTheDocument()
+  })
+
+  it('should render the publisher', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/cd project red/i)).toBeInTheDocument()
+  })
+
+  it('should render the developer', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/different tales/i)).toBeInTheDocument()
   })
 
   it('should render FREE rating when BR0', () => {
