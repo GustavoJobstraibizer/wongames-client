@@ -7,7 +7,7 @@ import TextField from '.'
 
 describe('TextField', () => {
   it('should render with label', () => {
-    renderWithTheme(<TextField label="Name" labelFor="name" id="name" />)
+    renderWithTheme(<TextField label="Name" name="name" />)
 
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument()
   })
@@ -36,9 +36,7 @@ describe('TextField', () => {
     const onInput = jest.fn()
     const valueTyping = 'Jhon doe'
 
-    renderWithTheme(
-      <TextField label="Name" labelFor="name" id="name" onInput={onInput} />
-    )
+    renderWithTheme(<TextField label="Name" name="name" onInput={onInput} />)
 
     const textBox = screen.getByRole('textbox')
 
@@ -55,7 +53,7 @@ describe('TextField', () => {
   })
 
   it('should accessible by tab', () => {
-    renderWithTheme(<TextField label="Name" labelFor="name" id="name" />)
+    renderWithTheme(<TextField label="Name" name="name" />)
 
     const textBox = screen.getByLabelText('Name')
 
@@ -128,7 +126,7 @@ describe('TextField', () => {
 
   it('should render with error message', () => {
     const { container } = renderWithTheme(
-      <TextField error="Something went wrong" label="E-mail" labelFor="email" />
+      <TextField error="Something went wrong" label="E-mail" name="email" />
     )
 
     expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()

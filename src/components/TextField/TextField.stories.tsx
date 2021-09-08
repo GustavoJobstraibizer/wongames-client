@@ -7,8 +7,7 @@ export default {
   component: TextField,
   args: {
     label: 'Name',
-    labelFor: 'name',
-    id: 'name',
+    name: 'name',
     placeholder: 'Enter your name...'
   },
   argTypes: {

@@ -66,6 +66,8 @@ exports[`TextField should render with error message 1`] = `
   >
     <input
       class="c4"
+      id="email"
+      name="email"
       type="text"
       value=""
     />
