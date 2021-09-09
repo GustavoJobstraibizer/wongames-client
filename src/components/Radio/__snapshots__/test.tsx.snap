@@ -67,7 +67,7 @@ exports[`Radio should render with label white 1`] = `
   opacity: 1;
 }
 
-<main
+<div
   class="c0"
 >
   <input
@@ -82,5 +82,5 @@ exports[`Radio should render with label white 1`] = `
   >
     Radio
   </label>
-</main>
+</div>
 `
