@@ -6,7 +6,8 @@ const props = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://via.placeholder.com/300x140',
-  price: 'R$ 230,00'
+  price: 'R$ 230,00',
+  slug: 'population-zero'
 }
 
 describe('GameCard', () => {
@@ -30,6 +31,11 @@ describe('GameCard', () => {
     expect(price.innerHTML).toEqual(props.price)
 
     expect(screen.getByTestId('button-add')).toBeInTheDocument()
+
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+      'href',
+      `/game/${props.slug}`
+    )
   })
 
   it('should render price in label', () => {
