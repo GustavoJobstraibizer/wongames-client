@@ -9,9 +9,7 @@ describe('Dropdown', () => {
   })
 
   it('should render Dropdown component', () => {
-    expect(
-      screen.getByRole('heading', { name: /click here/i })
-    ).toBeInTheDocument()
+    expect(screen.getByText(/click here/i)).toBeInTheDocument()
 
     expect(screen.queryByText(/content/i)).toHaveAttribute(
       'aria-hidden',
@@ -20,7 +18,7 @@ describe('Dropdown', () => {
   })
 
   it('should show the Content when click on the Title', () => {
-    const title = screen.getByRole('heading', { name: /click here/i })
+    const title = screen.getByText(/click here/i)
     const content = screen.getByText(/content/i)
 
     userEvent.click(title)
