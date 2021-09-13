@@ -1,5 +1,4 @@
 import * as HeadingStyles from 'components/Heading/styles'
-import * as HightlightStyles from 'components/Highlight/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -33,14 +32,6 @@ export const SectionNews = styled.div`
 
     ${HeadingStyles.Wrapper} {
       color: ${theme.colors.black};
-    }
-  `}
-`
-
-export const SectionUpcomming = styled.div`
-  ${({ theme }) => css`
-    ${HightlightStyles.Wrapper} {
-      margin-top: calc(${theme.spacings.xlarge} * 2);
     }
   `}
 `

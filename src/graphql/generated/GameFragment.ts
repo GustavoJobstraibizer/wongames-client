@@ -20,7 +20,6 @@ export interface GameFragment_developers {
 export interface GameFragment {
   __typename: "Game";
   name: string;
-  release_date: any | null;
   slug: string;
   cover: GameFragment_cover | null;
   developers: GameFragment_developers[];
