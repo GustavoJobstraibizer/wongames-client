@@ -21,6 +21,8 @@ export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
 }
 
+// generate in build time
+// generating 9 pages with different slugs
 export async function getStaticPaths() {
   const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
     query: QUERY_GAMES,
@@ -53,7 +55,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         price: game.price,
         description: game.short_description
       },
-      gallery: game.gallery,
+      gallery: game.gallery.map((image) => ({
+        src: `http://localhost:1337${image?.src}`,
+        label: image?.label
+      })),
       description: game.description,
       details: {
         developer: game.developers[0].name,
