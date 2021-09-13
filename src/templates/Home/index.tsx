@@ -44,6 +44,7 @@ const Home = ({
         title="Most Popular"
         highlight={mostPopularHighlight}
         games={mostPopularGames}
+        color="white"
       />
 
       <Showcase
