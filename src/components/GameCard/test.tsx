@@ -6,7 +6,7 @@ const props = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://via.placeholder.com/300x140',
-  price: 'R$ 230,00',
+  price: 230,
   slug: 'population-zero'
 }
 
@@ -28,7 +28,7 @@ describe('GameCard', () => {
 
     const price = screen.getByTestId('price')
 
-    expect(price.innerHTML).toEqual(props.price)
+    expect(price.innerHTML).toEqual('$230.00')
 
     expect(screen.getByTestId('button-add')).toBeInTheDocument()
 
@@ -49,22 +49,22 @@ describe('GameCard', () => {
       'background-color': '#3CD3C1'
     })
 
-    expect(screen.getByTestId('price').innerHTML).toEqual(props.price)
+    expect(screen.getByTestId('price').innerHTML).toEqual('$230.00')
   })
 
   it('should render promotional price', () => {
-    const promoPrice = 'R$ 200,99'
+    const promoPrice = 200.99
 
     renderWithTheme(<GameCard {...props} promotionalPrice={promoPrice} />)
 
-    const promotionalPrice = screen.getByText(promoPrice)
-    const price = screen.getByText(props.price)
+    const promotionalPrice = screen.getByText('$200.99')
+    const price = screen.getByText('$230.00')
 
     expect(promotionalPrice).not.toHaveStyle({
       'text-decoration': 'line-through'
     })
 
-    expect(promotionalPrice?.innerHTML).toEqual(promoPrice)
+    expect(promotionalPrice?.innerHTML).toEqual('$200.99')
 
     expect(price).toHaveStyle({
       'text-decoration': 'line-through'
@@ -74,7 +74,7 @@ describe('GameCard', () => {
       'background-color': '#3CD3C1'
     })
 
-    expect(price?.innerHTML).toEqual(props.price)
+    expect(price?.innerHTML).toEqual('$230.00')
   })
 
   it('should render a line through in price when promotional', () => {

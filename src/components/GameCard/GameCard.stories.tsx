@@ -9,7 +9,7 @@ export default {
     title: 'Population Zero',
     developer: 'Rockstar Games',
     img: 'https://via.placeholder.com/300x140',
-    price: 'R$ 230,00'
+    price: 230
   },
   parameters: {
     layout: 'fullscreen'
@@ -37,7 +37,7 @@ export const withPromotion: Story<GameCardProps> = (args) => (
 )
 
 withPromotion.args = {
-  promotionalPrice: 'R$ 200,00',
+  promotionalPrice: 200,
   ribbon: '20% OFF',
   ribbonColor: 'primary',
   ribbonSize: 'small'
