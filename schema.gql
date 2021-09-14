@@ -1413,13 +1413,13 @@ input editComponentPageHighlightInput {
 
 type ComponentPagePopularGames {
   id: ID!
-  title: String!
+  title: String
   highlight: ComponentPageHighlight
   games(sort: String, limit: Int, start: Int, where: JSON): [Game!]!
 }
 
 input ComponentPagePopularGameInput {
-  title: String!
+  title: String
   highlight: ComponentPageHighlightInput
   games: [ID]
 }
