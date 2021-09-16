@@ -15,7 +15,9 @@ describe('ExploreSidebar', () => {
       screen.getByRole('heading', { name: /sort by/i })
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /system/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /platforms/i })
+    ).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /genre/i })).toBeInTheDocument()
   })
 
@@ -40,7 +42,10 @@ describe('ExploreSidebar', () => {
       <ExploreSidebar
         items={itemsMock}
         onFilter={jest.fn}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{
+          platforms: ['windows', 'linux'],
+          sort_by: 'low-to-high'
+        }}
       />
     )
 
@@ -54,15 +59,16 @@ describe('ExploreSidebar', () => {
     renderWithTheme(
       <ExploreSidebar
         items={itemsMock}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{
+          platforms: ['windows', 'linux'],
+          sort_by: 'low-to-high'
+        }}
         onFilter={onFilter}
       />
     )
 
-    userEvent.click(screen.getByRole('button', { name: /filter/i }))
-
     expect(onFilter).toHaveBeenCalledWith({
-      windows: true,
+      platforms: ['windows', 'linux'],
       sort_by: 'low-to-high'
     })
   })
@@ -76,11 +82,10 @@ describe('ExploreSidebar', () => {
     userEvent.click(screen.getByRole('checkbox', { name: /linux/i }))
     userEvent.click(screen.getByRole('radio', { name: /low to high/i }))
 
-    userEvent.click(screen.getByRole('button', { name: /filter/i }))
+    expect(onFilter).toHaveBeenCalledTimes(4)
 
     expect(onFilter).toHaveBeenCalledWith({
-      windows: true,
-      linux: true,
+      platforms: ['windows', 'linux'],
       sort_by: 'low-to-high'
     })
   })
@@ -97,8 +102,6 @@ describe('ExploreSidebar', () => {
       sort_by: 'high-to-low'
     })
     userEvent.click(screen.getByRole('radio', { name: /low to high/i }))
-
-    userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
     expect(onFilter).toHaveBeenCalledWith({
       sort_by: 'low-to-high'
