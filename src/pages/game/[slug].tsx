@@ -63,12 +63,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     QueryUpcommingVariables
   >({
     query: QUERY_UPCOMMING,
-    variables: { date: TODAY }
+    variables: { date: TODAY },
+    fetchPolicy: 'no-cache'
   })
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       cover: `http://localhost:1337${game.cover?.src}`,
       gameInfo: {
         title: game.name,
