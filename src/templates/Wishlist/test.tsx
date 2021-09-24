@@ -1,7 +1,6 @@
-import { screen } from '@testing-library/react'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import Whishlist, { WishlistTemplateProps } from '.'
 
 const props: WishlistTemplateProps = {
@@ -21,7 +20,7 @@ jest.mock('components/Showcase', () => {
 
 describe('Whishlist', () => {
   it('should render Whishlist component', () => {
-    renderWithTheme(<Whishlist {...props} />)
+    render(<Whishlist {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /wishlist/i })
@@ -33,7 +32,7 @@ describe('Whishlist', () => {
   })
 
   it('should render Empty when there are no games', () => {
-    renderWithTheme(<Whishlist {...props} games={undefined} />)
+    render(<Whishlist {...props} games={undefined} />)
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
     expect(

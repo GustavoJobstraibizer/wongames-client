@@ -1,9 +1,9 @@
-import { renderWithTheme } from 'utils/test-utils'
+import { render } from 'utils/test-utils'
 import { Grid } from '.'
 
 describe('Grid', () => {
   it('should render Grid component', () => {
-    const { container } = renderWithTheme(<Grid>Grid content</Grid>)
+    const { container } = render(<Grid>Grid content</Grid>)
 
     expect(container.firstChild).toMatchInlineSnapshot(`
 .c0 {

@@ -1,11 +1,11 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import Dropdown from '.'
 
 describe('Dropdown', () => {
   beforeEach(() => {
-    renderWithTheme(<Dropdown title="Click here">Content</Dropdown>)
+    render(<Dropdown title="Click here">Content</Dropdown>)
   })
 
   it('should render Dropdown component', () => {

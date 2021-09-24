@@ -1,7 +1,6 @@
-import { screen } from '@testing-library/react'
 import { GameCardProps } from 'components/GameCard'
 import 'match-media-mock'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import GameCardSlider from '.'
 
 const items: GameCardProps[] = [
@@ -47,7 +46,7 @@ const items: GameCardProps[] = [
 
 describe('GameCardSlider', () => {
   it('should render GameCardSlider component', () => {
-    const { container } = renderWithTheme(<GameCardSlider items={items} />)
+    const { container } = render(<GameCardSlider items={items} />)
 
     const slickList = container.querySelector('.slick-list')
 
@@ -56,7 +55,7 @@ describe('GameCardSlider', () => {
   })
 
   it('should render white arrows if color passed', () => {
-    renderWithTheme(<GameCardSlider items={items} color="white" />)
+    render(<GameCardSlider items={items} color="white" />)
 
     expect(screen.getByLabelText(/jogo anterior/i)).toHaveStyle({
       color: '#FAFAFA'

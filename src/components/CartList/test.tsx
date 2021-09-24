@@ -1,11 +1,10 @@
-import { screen } from '@testing-library/dom'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import CartList from '.'
 import cartListMock from './mock'
 
 describe('CartList', () => {
   it('should render CartList component', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <CartList items={cartListMock} total="R$ 350,00" />
     )
 
@@ -17,15 +16,13 @@ describe('CartList', () => {
   })
 
   it('should render the button', () => {
-    renderWithTheme(
-      <CartList items={cartListMock} hasButton total="R$ 350,00" />
-    )
+    render(<CartList items={cartListMock} hasButton total="R$ 350,00" />)
 
     expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
   })
 
   it('should render <Empty /> when items is empty', () => {
-    renderWithTheme(<CartList items={[]} hasButton total="R$ 350,00" />)
+    render(<CartList items={[]} hasButton total="R$ 350,00" />)
 
     expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument()
     expect(screen.queryByText(/total/i)).not.toBeInTheDocument()

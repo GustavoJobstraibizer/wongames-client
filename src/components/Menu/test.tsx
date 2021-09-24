@@ -1,5 +1,5 @@
-import { fireEvent, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/test-utils'
+import { fireEvent } from '@testing-library/react'
+import { render, screen } from 'utils/test-utils'
 import Menu from '.'
 
 jest.mock('components/UserDropdown', () => {
@@ -13,7 +13,7 @@ jest.mock('components/UserDropdown', () => {
 
 describe('Menu', () => {
   it('should render Menu component', () => {
-    renderWithTheme(<Menu />)
+    render(<Menu />)
 
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
@@ -22,7 +22,7 @@ describe('Menu', () => {
   })
 
   it('should handle the open/close mobile menu', () => {
-    renderWithTheme(<Menu />)
+    render(<Menu />)
 
     // Selecionar o menu
     const fullMenu = screen.getByRole('navigation', { hidden: true })
@@ -43,14 +43,14 @@ describe('Menu', () => {
   })
 
   it('should show register box when logged out', () => {
-    renderWithTheme(<Menu />)
+    render(<Menu />)
 
     expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
   })
 
   it('should show wishlist and profile link when logged in', () => {
-    renderWithTheme(<Menu username="Jhon" />)
+    render(<Menu username="Jhon" />)
 
     // when the expect is an negation, use queryByText instead of getByText
     expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()

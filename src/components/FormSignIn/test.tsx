@@ -1,10 +1,9 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import FormSignIn from '.'
 
 describe('FormSignIn', () => {
   it('should render the form', () => {
-    const { container } = renderWithTheme(<FormSignIn />)
+    const { container } = render(<FormSignIn />)
 
     expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
@@ -16,7 +15,7 @@ describe('FormSignIn', () => {
   })
 
   it('should render the forgot password link', () => {
-    renderWithTheme(<FormSignIn />)
+    render(<FormSignIn />)
 
     expect(
       screen.getByRole('link', { name: /forgot your password\?/i })
@@ -24,7 +23,7 @@ describe('FormSignIn', () => {
   })
 
   it('should render the text and link to sign up', () => {
-    renderWithTheme(<FormSignIn />)
+    render(<FormSignIn />)
 
     expect(screen.getByText(/dont have an account?/i)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /sign up/i })).toBeInTheDocument()

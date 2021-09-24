@@ -1,8 +1,7 @@
-import { screen } from '@testing-library/react'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import 'match-media-mock'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import Showcase from '.'
 
 const props = {
@@ -13,7 +12,7 @@ const props = {
 
 describe('Showcase', () => {
   it('should render Showcase with all props', () => {
-    const { container } = renderWithTheme(<Showcase {...props} />)
+    const { container } = render(<Showcase {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /free games/i })
@@ -30,7 +29,7 @@ describe('Showcase', () => {
   })
 
   it('should render Showcase without title', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Showcase highlight={props.highlight} games={props.games} />
     )
 
@@ -47,7 +46,7 @@ describe('Showcase', () => {
   })
 
   it('should render Showcase without highlight', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Showcase title={props.title} games={props.games} />
     )
 
@@ -66,7 +65,7 @@ describe('Showcase', () => {
   })
 
   it('should render Showcase without games', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Showcase title={props.title} highlight={props.highlight} />
     )
 

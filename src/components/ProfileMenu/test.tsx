@@ -1,11 +1,10 @@
-import { screen } from '@testing-library/react'
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import ProfileMenu from '.'
 
 describe('ProfileMenu', () => {
   it('should render ProfileMenu component', () => {
-    const { container } = renderWithTheme(<ProfileMenu />)
+    const { container } = render(<ProfileMenu />)
     expect(
       screen.getByRole('link', { name: /my profile/i })
     ).toBeInTheDocument()
@@ -17,7 +16,7 @@ describe('ProfileMenu', () => {
   })
 
   it('should render the menu with active link', () => {
-    renderWithTheme(<ProfileMenu activeLink="/profile/me" />)
+    render(<ProfileMenu activeLink="/profile/me" />)
 
     expect(screen.getByRole('link', { name: /my profile/i })).toHaveStyle({
       background: theme.colors.primary,

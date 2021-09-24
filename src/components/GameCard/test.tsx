@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/test-utils'
+import { render } from 'utils/test-utils'
 import GameCard from '.'
 
 const props = {
@@ -12,7 +12,7 @@ const props = {
 
 describe('GameCard', () => {
   it('should render GameCard component', () => {
-    renderWithTheme(<GameCard {...props} />)
+    render(<GameCard {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /population zero/i })
@@ -39,7 +39,7 @@ describe('GameCard', () => {
   })
 
   it('should render price in label', () => {
-    renderWithTheme(<GameCard {...props} />)
+    render(<GameCard {...props} />)
 
     expect(screen.getByTestId('price')).not.toHaveStyle({
       'text-decoration': 'line-through'
@@ -55,7 +55,7 @@ describe('GameCard', () => {
   it('should render promotional price', () => {
     const promoPrice = 200.99
 
-    renderWithTheme(<GameCard {...props} promotionalPrice={promoPrice} />)
+    render(<GameCard {...props} promotionalPrice={promoPrice} />)
 
     const promotionalPrice = screen.getByText('$200.99')
     const price = screen.getByText('$230.00')
@@ -78,7 +78,7 @@ describe('GameCard', () => {
   })
 
   it('should render a line through in price when promotional', () => {
-    renderWithTheme(<GameCard {...props} favorite />)
+    render(<GameCard {...props} favorite />)
 
     expect(
       screen.getByLabelText(/remover da lista de desejos/i)
@@ -88,7 +88,7 @@ describe('GameCard', () => {
   it('should call onFavorite when favorite is clicked', () => {
     const onFavorite = jest.fn()
 
-    renderWithTheme(<GameCard {...props} onFavorite={onFavorite} />)
+    render(<GameCard {...props} onFavorite={onFavorite} />)
 
     const favoriteButton = screen.getByTestId('favorite-button')
 
@@ -98,7 +98,7 @@ describe('GameCard', () => {
   })
 
   it('should render with a Ribbon', () => {
-    renderWithTheme(
+    render(
       <GameCard
         {...props}
         ribbon="20% off"

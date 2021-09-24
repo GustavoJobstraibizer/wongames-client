@@ -1,11 +1,10 @@
-import { screen } from '@testing-library/react'
 import items from 'components/CartList/mock'
-import { renderWithTheme } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 import CartDropdown from '.'
 
 describe('CartDropdown', () => {
   beforeEach(() => {
-    renderWithTheme(<CartDropdown items={items} total="R$ 300,00" />)
+    render(<CartDropdown items={items} total="R$ 300,00" />)
   })
 
   it('should render CartDropdown component with badge', () => {
