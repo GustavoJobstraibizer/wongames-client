@@ -1,5 +1,6 @@
 export default [
   {
+    id: '1',
     title: 'Population Zero 1',
     developer: 'Rockstar Games',
     img: 'https://via.placeholder.com/300x140',
@@ -7,6 +8,7 @@ export default [
     slug: 'population-zero-1'
   },
   {
+    id: '2',
     title: 'Population Zero 2',
     developer: 'Rockstar Games',
     img: 'https://via.placeholder.com/300x140',
@@ -14,6 +16,7 @@ export default [
     slug: 'population-zero-2'
   },
   {
+    id: '3',
     title: 'Population Zero 3',
     developer: 'Rockstar Games',
     img: 'https://via.placeholder.com/300x140',
@@ -21,6 +24,7 @@ export default [
     slug: 'population-zero-3'
   },
   {
+    id: '4',
     title: 'Population Zero 4',
     developer: 'Rockstar Games',
     img: 'https://via.placeholder.com/300x140',
@@ -30,6 +34,7 @@ export default [
     slug: 'population-zero-4'
   },
   {
+    id: '5',
     title: 'Population Zero 5',
     developer: 'Rockstar Games',
     img: 'https://via.placeholder.com/300x140',
