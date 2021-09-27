@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client'
 import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
-import { FormLink, FormWrapper } from 'components/Form'
+import { FormLink, FormLoading, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 import { MUTATION_REGISTER } from 'graphql/mutations/register'
@@ -14,12 +14,21 @@ const FormSignUp = () => {
     password: '',
     username: ''
   })
+  const [loading, setLoading] = useState(false)
 
   const [createUser] = useMutation(MUTATION_REGISTER)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    await createUser({ variables: { input: values } })
+    setLoading(true)
+
+    try {
+      await createUser({ variables: { input: values } })
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleInput = (field: string, value: string | undefined) => {
@@ -57,8 +66,8 @@ const FormSignUp = () => {
           icon={<Lock />}
         />
 
-        <Button type="submit" size="large" fullWidth>
-          Sign up now
+        <Button type="submit" size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : 'Sign up now'}
         </Button>
 
         <FormLink>

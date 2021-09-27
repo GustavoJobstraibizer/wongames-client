@@ -1,6 +1,6 @@
 import { Email, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
-import { FormLink, FormWrapper } from 'components/Form'
+import { FormLink, FormLoading, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
 import { signIn } from 'next-auth/client'
 import Link from 'next/link'
@@ -15,9 +15,11 @@ const FormSignIn = () => {
     email: '',
     password: ''
   })
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
 
     const result = await signIn('credentials', {
       ...values,
@@ -28,6 +30,8 @@ const FormSignIn = () => {
     if (result?.url) {
       return push(result.url)
     }
+
+    setLoading(false)
 
     console.error('E-mail e/ou senha inválidos!')
   }
@@ -56,8 +60,8 @@ const FormSignIn = () => {
 
         <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
 
-        <Button type="submit" size="large" fullWidth>
-          Sign in now
+        <Button type="submit" size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : 'Sign in now'}
         </Button>
 
         <FormLink>
