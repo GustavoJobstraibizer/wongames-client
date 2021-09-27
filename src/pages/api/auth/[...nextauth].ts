@@ -37,11 +37,11 @@ const options = {
 
       return Promise.resolve(session)
     },
-    jwt: async (token: JWT, user: User) => {
+    jwt: async (token: JWT, user: Record<string, string>) => {
       if (user) {
         token.id = user.id
         token.email = user.email
-        token.name = user.name
+        token.name = user.username
         token.jwt = user.jwt
       }
 
