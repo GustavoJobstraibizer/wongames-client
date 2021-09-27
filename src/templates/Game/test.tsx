@@ -4,6 +4,7 @@ import { GameDetailsProps } from 'components/GameDetails'
 import gameDetailsMock from 'components/GameDetails/mock'
 import gameInfoMock from 'components/GameInfo/mock'
 import highlightMock from 'components/Highlight/mock'
+import React from 'react'
 import { render, screen } from 'utils/test-utils'
 import Game, { GameTemplateProps } from '.'
 
@@ -18,6 +19,15 @@ const props: GameTemplateProps = {
   recommendedGames: gamesMock,
   upcommingTitle: 'Upcomming Games'
 }
+
+jest.mock('templates/Base', () => {
+  return {
+    __esModule: true,
+    default: function Mock({ children }: { children: React.ReactNode }) {
+      return <div data-testid="mock base">{children}</div>
+    }
+  }
+})
 
 jest.mock('components/Menu', () => {
   return {

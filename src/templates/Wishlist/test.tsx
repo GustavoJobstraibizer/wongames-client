@@ -9,6 +9,15 @@ const props: WishlistTemplateProps = {
   recommendedHighlight: highlightMock
 }
 
+jest.mock('templates/Base', () => {
+  return {
+    __esModule: true,
+    default: function Mock({ children }: { children: React.ReactNode }) {
+      return <div data-testid="mock Base">{children}</div>
+    }
+  }
+})
+
 jest.mock('components/Showcase', () => {
   return {
     __esModule: true,
