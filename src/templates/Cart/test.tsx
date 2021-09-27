@@ -1,4 +1,3 @@
-import itemsMock from 'components/CartList/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import hightlightMock from 'components/Highlight/mock'
 import cardsMock from 'components/PaymentOptions/mock'
@@ -8,8 +7,6 @@ import Cart from '.'
 const props = {
   recommendedGames: gamesMock.slice(0, 5),
   recommendedHighlight: hightlightMock,
-  items: itemsMock,
-  total: 'R$ 400,00',
   cards: cardsMock
 }
 
@@ -70,11 +67,5 @@ describe('Cart', () => {
     expect(screen.getByTestId('mock showcase')).toBeInTheDocument()
     expect(screen.getByTestId('mock paymentOptions')).toBeInTheDocument()
     expect(screen.queryByTestId('mock empty')).not.toBeInTheDocument()
-  })
-
-  it('should render empty section if there are no items', () => {
-    render(<Cart {...props} items={[]} />)
-
-    expect(screen.getByTestId('mock empty')).toBeInTheDocument()
   })
 })
