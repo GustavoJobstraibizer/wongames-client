@@ -2,14 +2,11 @@ import * as ButtonStyles from 'components/Button/styles'
 import { tint } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    background: ${theme.colors.white};
-  `}
-`
+export const Wrapper = styled.div``
 
 export const Body = styled.div`
   ${({ theme }) => css`
+    background: ${theme.colors.white};
     padding: ${theme.spacings.small};
   `}
 `
