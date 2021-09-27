@@ -1,10 +1,18 @@
 import items from 'components/CartList/mock'
+import { CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/test-utils'
 import CartDropdown from '.'
 
 describe('CartDropdown', () => {
   beforeEach(() => {
-    render(<CartDropdown items={items} total="R$ 300,00" />)
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items,
+      quantity: items.length,
+      total: 'R$ 300,00'
+    }
+
+    render(<CartDropdown />, { cartProviderProps })
   })
 
   it('should render CartDropdown component with badge', () => {
