@@ -1,4 +1,5 @@
 import { MockedProvider } from '@apollo/client/testing'
+import { act } from '@testing-library/react-hooks'
 import userEvent from '@testing-library/user-event'
 import filterItemsMock from 'components/ExploreSidebar/mock'
 import apolloCache from 'utils/apolloCache'
@@ -76,7 +77,9 @@ describe('Games', () => {
     )
     expect(await screen.findByText(/first game/i)).toBeInTheDocument()
 
-    userEvent.click(await screen.findByRole('button', { name: /show more/i }))
+    await act(async () => {
+      userEvent.click(await screen.findByRole('button', { name: /show more/i }))
+    })
 
     // screen.logTestingPlaygroundURL()
   })
@@ -88,9 +91,11 @@ describe('Games', () => {
       </MockedProvider>
     )
 
-    userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
-    userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
-    userEvent.click(await screen.findByLabelText(/low to high/i))
+    await act(async () => {
+      userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
+      userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
+      userEvent.click(await screen.findByLabelText(/low to high/i))
+    })
 
     expect(push).toHaveBeenCalledWith({
       pathname: '/games',
