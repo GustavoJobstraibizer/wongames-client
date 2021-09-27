@@ -3,6 +3,7 @@ import { render } from 'utils/test-utils'
 import GameCard from '.'
 
 const props = {
+  id: '1',
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://via.placeholder.com/300x140',
@@ -30,7 +31,7 @@ describe('GameCard', () => {
 
     expect(price.innerHTML).toEqual('$230.00')
 
-    expect(screen.getByTestId('button-add')).toBeInTheDocument()
+    expect(screen.getByLabelText(/add to cart/i)).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
       'href',
