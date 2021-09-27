@@ -49,6 +49,12 @@ exports[`FormSignUp should render the form 1`] = `
   color: #030517;
 }
 
+.c6:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
 .c3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -150,8 +156,8 @@ exports[`FormSignUp should render the form 1`] = `
         </div>
         <input
           class="c6"
-          name="name"
-          placeholder="Name"
+          name="username"
+          placeholder="Username"
           type="text"
           value=""
         />
@@ -271,13 +277,14 @@ exports[`FormSignUp should render the form 1`] = `
           class="c6"
           name="confirm-password"
           placeholder="Confirm Password"
-          type="confirm-password"
+          type="password"
           value=""
         />
       </div>
     </main>
     <button
       class="c7 c8"
+      type="submit"
     >
       <span>
         Sign up now
