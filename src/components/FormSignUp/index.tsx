@@ -5,6 +5,7 @@ import { FormLink, FormLoading, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 import { MUTATION_REGISTER } from 'graphql/mutations/register'
+import { signin } from 'next-auth/client'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -16,7 +17,17 @@ const FormSignUp = () => {
   })
   const [loading, setLoading] = useState(false)
 
-  const [createUser] = useMutation(MUTATION_REGISTER)
+  const [createUser] = useMutation(MUTATION_REGISTER, {
+    onError: (err) => console.error(err),
+    onCompleted: (data) => {
+      data &&
+        signin('credentials', {
+          email: values.email,
+          password: values.password,
+          callbackUrl: '/'
+        })
+    }
+  })
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
