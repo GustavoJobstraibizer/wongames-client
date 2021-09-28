@@ -54,3 +54,17 @@ export const FormError = styled.div`
     }
   `}
 `
+
+export const FormSuccess = styled.p`
+  ${({ theme }) => css`
+    text-align: center;
+    color: ${theme.colors.black};
+    font-size: ${theme.font.sizes.small};
+
+    svg {
+      width: 1.6rem;
+      color: ${theme.colors.secondary};
+      margin-right: ${theme.spacings.xxsmall};
+    }
+  `}
+`
