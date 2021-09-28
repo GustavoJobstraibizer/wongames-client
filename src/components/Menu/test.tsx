@@ -58,4 +58,11 @@ describe('Menu', () => {
 
     expect(screen.getByTestId('mock UserDropdown')).toBeInTheDocument()
   })
+
+  it('should not show sign in or dropdown user if loading', () => {
+    render(<Menu username="Jhon" loading />)
+
+    expect(screen.queryByText(/my profile/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
+  })
 })
