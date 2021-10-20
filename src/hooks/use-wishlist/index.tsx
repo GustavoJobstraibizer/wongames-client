@@ -35,7 +35,7 @@ export type WishlistProviderProps = {
 }
 
 const WishlistProvider = ({ children }: WishlistProviderProps) => {
-  const session = useSession()
+  const [session] = useSession()
   const [wishlistId, setWishlistId] = useState<string | null | undefined>(null)
   const [wishlistItems, setWishlistItems] = useState<
     QueryWishlist_wishlists_games[]
