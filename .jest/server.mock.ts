@@ -1,4 +1,5 @@
-global.fetch = require('node-fetch')
+const fetch = require('node-fetch')
+global.fetch = fetch
 
 import { server } from '../src/utils/mockServer/server'
 
