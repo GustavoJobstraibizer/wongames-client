@@ -1,5 +1,6 @@
 import { GameCardProps } from 'components/GameCard'
 import 'match-media-mock'
+import 'session.mock'
 import { render, screen } from 'utils/test-utils'
 import GameCardSlider from '.'
 

@@ -1,6 +1,7 @@
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import 'match-media-mock'
+import 'session.mock'
 import { render, screen } from 'utils/test-utils'
 import Showcase from '.'
 

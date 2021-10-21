@@ -1,4 +1,5 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import 'session.mock'
 import { render } from 'utils/test-utils'
 import GameCard from '.'
 
@@ -76,26 +77,6 @@ describe('GameCard', () => {
     })
 
     expect(price?.innerHTML).toEqual('$230.00')
-  })
-
-  it('should render a line through in price when promotional', () => {
-    render(<GameCard {...props} favorite />)
-
-    expect(
-      screen.getByLabelText(/remover da lista de desejos/i)
-    ).toBeInTheDocument()
-  })
-
-  it('should call onFavorite when favorite is clicked', () => {
-    const onFavorite = jest.fn()
-
-    render(<GameCard {...props} onFavorite={onFavorite} />)
-
-    const favoriteButton = screen.getByTestId('favorite-button')
-
-    fireEvent.click(favoriteButton)
-
-    expect(onFavorite).toHaveBeenCalledTimes(1)
   })
 
   it('should render with a Ribbon', () => {
