@@ -1,13 +1,11 @@
 import gamesMock from 'components/GameCardSlider/mock'
 import hightlightMock from 'components/Highlight/mock'
-import cardsMock from 'components/PaymentOptions/mock'
 import { render, screen } from 'utils/test-utils'
 import Cart from '.'
 
 const props = {
   recommendedGames: gamesMock.slice(0, 5),
-  recommendedHighlight: hightlightMock,
-  cards: cardsMock
+  recommendedHighlight: hightlightMock
 }
 
 jest.mock('templates/Base', () => {
@@ -37,11 +35,11 @@ jest.mock('components/CartList', () => {
   }
 })
 
-jest.mock('components/PaymentOptions', () => {
+jest.mock('components/PaymentForm', () => {
   return {
     __esModule: true,
     default: function Mock() {
-      return <div data-testid="mock paymentOptions"></div>
+      return <div data-testid="mock PaymentForm"></div>
     }
   }
 })
@@ -65,7 +63,7 @@ describe('Cart', () => {
 
     expect(screen.getByTestId('mock cart')).toBeInTheDocument()
     expect(screen.getByTestId('mock showcase')).toBeInTheDocument()
-    expect(screen.getByTestId('mock paymentOptions')).toBeInTheDocument()
+    expect(screen.getByTestId('mock PaymentForm')).toBeInTheDocument()
     expect(screen.queryByTestId('mock empty')).not.toBeInTheDocument()
   })
 })
