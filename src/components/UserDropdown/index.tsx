@@ -7,6 +7,7 @@ import {
 import Dropdown from 'components/Dropdown'
 import { signOut } from 'next-auth/client'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import * as S from './styles'
 
 export type UserDropdownProps = {
@@ -14,6 +15,8 @@ export type UserDropdownProps = {
 }
 
 const UserDropdown = ({ username }: UserDropdownProps) => {
+  const { push } = useRouter()
+
   return (
     <Dropdown
       title={
@@ -39,7 +42,13 @@ const UserDropdown = ({ username }: UserDropdownProps) => {
           </S.Link>
         </Link>
 
-        <S.Link role="button" onClick={() => signOut()}>
+        <S.Link
+          role="button"
+          onClick={async () => {
+            const data = await signOut({ redirect: false, callbackUrl: '/' })
+            push(data.url)
+          }}
+        >
           <ExitToApp />
           <span>Sign out</span>
         </S.Link>
