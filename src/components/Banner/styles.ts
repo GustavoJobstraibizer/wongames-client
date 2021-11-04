@@ -20,14 +20,8 @@ export const Wrapper = styled.main`
   `}
 `
 
-export type ImageProps = {
-  src: string
-}
-
-export const Image = styled.div<ImageProps>`
-  ${({ theme, src }) => css`
-    background: url(${src}) no-repeat center center;
-    background-size: cover;
+export const ImageWrapper = styled.div`
+  ${({ theme }) => css`
     background-color: ${theme.colors.lightGray};
     width: 100%;
     height: 23rem;
