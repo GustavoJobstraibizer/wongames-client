@@ -2,6 +2,7 @@ import { CartContext, CartContextDefaultValues } from 'hooks/use-cart';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from 'styles/global';
 import theme from 'styles/theme';
+import '../.jest/next-image.mock';
 
 export const decorators = [
   (Story) => (

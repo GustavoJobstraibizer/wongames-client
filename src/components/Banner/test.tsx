@@ -24,10 +24,7 @@ describe('Banner', () => {
       screen.getByRole('heading', { name: /play the new crashlands season/i })
     ).toBeInTheDocument()
 
-    expect(screen.getByLabelText(/defy death/i)).toHaveAttribute(
-      'src',
-      props.img
-    )
+    expect(screen.getByRole('img')).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
       'href',
