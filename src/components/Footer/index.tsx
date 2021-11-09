@@ -36,12 +36,12 @@ const Footer = () => {
           <a href="#">suporte@wongames.com</a>
         </S.Column>
 
-        <S.Column>
+        <S.Column aria-labelledby="social-media">
           <Heading color="black" size="small" lineBottom lineColor="secondary">
             Follow us
           </Heading>
 
-          <nav aria-labelledby="social media">
+          <nav id="social-media">
             {socialMedias.map(({ name, url }) => (
               <a
                 key={name}
@@ -55,12 +55,12 @@ const Footer = () => {
           </nav>
         </S.Column>
 
-        <S.Column>
+        <S.Column aria-labelledby="resources">
           <Heading color="black" size="small" lineBottom lineColor="secondary">
             Links
           </Heading>
 
-          <nav aria-labelledby="social media">
+          <nav id="resources">
             <Link href="#">
               <a>Home</a>
             </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
           </nav>
         </S.Column>
 
-        <S.Column aria-labelledby="footer-contact">
+        <S.Column aria-labelledby="contact">
           <Heading color="black" size="small" lineBottom lineColor="secondary">
             Location
           </Heading>
