@@ -3,7 +3,6 @@ import { CartProvider } from 'hooks/use-cart'
 import { WishlistProvider } from 'hooks/use-wishlist'
 import { Provider as AuthProvider } from 'next-auth/client'
 import { DefaultSeo } from 'next-seo'
-import SEO from 'next-seo.config'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNprogress from 'nextjs-progressbar'
@@ -11,6 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 import { useApollo } from 'utils/apollo'
+import SEO from '../../next-seo.config'
 
 function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
