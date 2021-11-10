@@ -32,7 +32,7 @@ const GameCard = ({
   ribbonColor = 'primary'
 }: GameCardProps) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper data-cy="game-card">
       <Link href={`game/${slug}`} passHref>
         <S.ImageBox>
           <Image src={img} alt={title} layout="fill" objectFit="cover" />
