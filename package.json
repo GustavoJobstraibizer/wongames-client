@@ -12,6 +12,7 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s public",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
