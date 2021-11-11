@@ -38,6 +38,16 @@ declare namespace Cypress {
      * Custom command to get Fields in page
      * @example cy.getFields()
      */
-    getFields(list: FieldsAttr[]): void
+    getFields(list: FieldsAttr[]): Chainable<Element>
+    /**
+     * Custom command to check if value is Greater than to given value
+     * @example cy.shouldBeGreaterThan(10)
+     */
+    shouldBeGreaterThan(gtValue: number): Chainable<Element>
+    /**
+     * Custom command to check if value is Less than to given value
+     * @example cy.shouldBeLessThan(20)
+     */
+    shouldBeLessThan(ltValue: number): Chainable<Element>
   }
 }
