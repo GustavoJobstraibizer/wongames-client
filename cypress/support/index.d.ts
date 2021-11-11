@@ -12,6 +12,12 @@ type FieldsAttr = {
   name: number | string
 }
 
+type User = {
+  username: string
+  email: string
+  password: string
+}
+
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -49,5 +55,10 @@ declare namespace Cypress {
      * @example cy.shouldBeLessThan(20)
      */
     shouldBeLessThan(ltValue: number): Chainable<Element>
+    /**
+     * Custom command fill the form with User data
+     * @example cy.signUp(user: User)
+     */
+    signUp(user: User): Chainable<Element>
   }
 }
