@@ -1,9 +1,11 @@
 /// <reference path="../support/index.d.ts" />
 
 describe('Game', () => {
-  it('should render Game page section', () => {
+  before(() => {
     cy.visit('/game/fallout');
+  })
 
+  it.skip('should render Game page section', () => {
     cy.wait(600);
     cy.getByDataCy('game-info').within(() => {
       cy.findByRole('heading', { name: /fallout/i }).should('exist')
@@ -43,5 +45,27 @@ describe('Game', () => {
 
     cy.shouldRenderShowcase({ name: 'Upcomming Games', highlight: true })
     cy.shouldRenderShowcase({ name: 'You may like these Games!!!', highlight: false })
+  })
+
+  it('should add/remove game in card', () => {
+    cy.getByDataCy('game-info', { timeout: 5000 }).within(() => {
+      cy.findByRole('button', { name: /add to cart/i }).click()
+
+      cy.findByRole('button', { name: /remove from cart/i }).should('exist')
+    })
+    cy.findAllByLabelText(/cart items/i).first().should('have.text', '1').click()
+
+    cy.getByDataCy('cart-list').within(() => {
+      cy.findByRole('heading', { name: /fallout/i }).should('exist')
+    })
+
+    cy.findAllByLabelText(/cart items/i).first().click()
+
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: /remove from cart/i }).should('exist').click()
+      cy.findByRole('button', { name: /add to cart/i }).should('exist')
+    })
+
+    cy.findAllByLabelText(/cart items/i).should('not.exist')
   })
 })

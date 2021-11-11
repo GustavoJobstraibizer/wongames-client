@@ -18,7 +18,7 @@ declare namespace Cypress {
      * Custom command to get element by data-cy values
      * @example cy.getByDataCy('selector')
      */
-    getByDataCy(selector: string): Chainable<Window>
+    getByDataCy(selector: string, ...args): Chainable<Window>
     /**
      * Custom command to check banners in page
      * @example cy.shouldRenderBanner()
