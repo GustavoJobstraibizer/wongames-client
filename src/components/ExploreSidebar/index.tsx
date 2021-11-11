@@ -64,7 +64,7 @@ const ExploreSidebar = ({
 
       <S.Content>
         {items?.map(({ title, name: fieldName, type, fields }) => (
-          <S.Items key={title}>
+          <S.Items key={title} data-cy={title}>
             <Heading lineBottom lineColor="secondary" size="small">
               {title}
             </Heading>
