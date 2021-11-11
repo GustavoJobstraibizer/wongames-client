@@ -65,3 +65,14 @@ Cypress.Commands.add('shouldRenderShowcase', ({ name, highlight = false }) => {
 Cypress.Commands.add('getByDataCy', (selector: string, ...args) => {
   return cy.get(`[data-cy="${selector}"]`, ...args)
 })
+
+type FieldsAttr = {
+  label: string
+  name: number | string
+}
+
+Cypress.Commands.add('getFields', (fields: FieldsAttr[]) => {
+  fields.map(({ label }) => {
+    cy.findByText(label).should('exist')
+  })
+})

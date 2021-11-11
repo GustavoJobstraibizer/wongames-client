@@ -7,6 +7,11 @@ type ShowCaseAttributes = {
   highlight?: boolean
 }
 
+type FieldsAttr = {
+  label: string
+  name: number | string
+}
+
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -29,5 +34,10 @@ declare namespace Cypress {
      * @example cy.shouldRenderShowcase()
      */
     shouldRenderShowcase(attrs: ShowCaseAttributes): Chainable<Element>
+    /**
+     * Custom command to get Fields in page
+     * @example cy.getFields()
+     */
+    getFields(list: FieldsAttr[]): void
   }
 }
