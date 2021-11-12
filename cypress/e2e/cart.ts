@@ -4,9 +4,9 @@ describe('Cart', () => {
   it('should add and remove items from cart', () => {
     cy.visit('/')
 
-    cy.addToCartByIndex('New Games', 0)
-    cy.addToCartByIndex('New Games', 1)
-    cy.addToCartByIndex('New Games', 2)
+    cy.addToCartByIndex(0, 'New Games')
+    cy.addToCartByIndex(1, 'New Games')
+    cy.addToCartByIndex(2, 'New Games')
 
     cy.findAllByLabelText(/cart items/i).first().should('have.text', '3').click()
 
@@ -16,9 +16,9 @@ describe('Cart', () => {
 
     cy.findAllByLabelText(/cart items/i).first().click()
 
-    cy.removeFromCartByIndex('New Games', 0)
-    cy.removeFromCartByIndex('New Games', 1)
-    cy.removeFromCartByIndex('New Games', 2)
+    cy.removeFromCartByIndex(0, 'New Games')
+    cy.removeFromCartByIndex(1, 'New Games')
+    cy.removeFromCartByIndex(2, 'New Games')
 
     cy.findAllByLabelText(/cart items/i).should('not.exist')
 
