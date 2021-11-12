@@ -14,6 +14,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e": "start-server-and-test dev 3000 cy:open",
+    "test:e2e:ci": "start-server-and-test dev 3000 cy:run",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s public",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
