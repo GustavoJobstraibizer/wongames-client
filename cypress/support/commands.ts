@@ -107,3 +107,19 @@ Cypress.Commands.add('signIn', (email = 'gustavojobs.dev@gmail.com', password = 
     cy.findByPlaceholderText(/^password/i).type(password)
     cy.findByRole('button', { name: /sign in now/i }).click()
 })
+
+Cypress.Commands.add('addToCartByIndex', (context: string, index: number) => {
+  cy.getByDataCy(context).within(() => {
+    cy.getByDataCy('game-card').eq(index).within(() => {
+      cy.findByRole('button', { name: /^add to cart/i }).click()
+    })
+  })
+})
+
+Cypress.Commands.add('removeFromCartByIndex', (context: string, index: number) => {
+  cy.getByDataCy(context).within(() => {
+    cy.getByDataCy('game-card').eq(index).within(() => {
+      cy.findByRole('button', { name: /^remove from cart/i }).click()
+    })
+  })
+})
