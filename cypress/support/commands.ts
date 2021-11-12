@@ -26,6 +26,7 @@
 
 // Add Testing Library commands
 import '@testing-library/cypress/add-commands';
+import 'cypress-plugin-stripe-elements';
 import { User } from './generate';
 
 Cypress.Commands.add('google', () => {
@@ -137,5 +138,5 @@ Cypress.Commands.add('removeFromCartByIndex', (index: number, context = '') => {
 })
 
 Cypress.Commands.add('checkUrl', (path = '/') => {
-  cy.url({ timeout: 10000 }).should('eq', `${Cypress.config().baseUrl}${path}`)
+  cy.url({ timeout: 20000 }).should('eq', `${Cypress.config().baseUrl}${path}`)
 })
