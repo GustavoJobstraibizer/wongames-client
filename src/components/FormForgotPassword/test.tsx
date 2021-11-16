@@ -32,7 +32,7 @@ describe('<FormForgotPassword />', () => {
     userEvent.click(screen.getByRole('button', { name: /send email/i }))
 
     expect(
-      await screen.findByText(/You just received an email!/i)
+      await screen.findByText(/You just received an email/i)
     ).toBeInTheDocument()
   })
 

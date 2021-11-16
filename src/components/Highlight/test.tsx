@@ -28,17 +28,18 @@ describe('Highlight', () => {
   })
 
   it('should render background image', () => {
-    const { container } = render(<Highlight {...props} />)
+    render(<Highlight {...props} />)
 
-    expect(container.firstChild).toHaveStyle({
-      backgroundImage: `url(${props.backgroundImage})`
-    })
+    expect(screen.getByTestId('bg-image')).toHaveAttribute(
+      'src',
+      `${props.backgroundImage}`
+    )
   })
 
   it('should render a float image', () => {
     render(<Highlight {...props} floatImage="/float-image.jpg" />)
 
-    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
+    expect(screen.getByTestId('float-image')).toHaveAttribute(
       'src',
       '/float-image.jpg'
     )

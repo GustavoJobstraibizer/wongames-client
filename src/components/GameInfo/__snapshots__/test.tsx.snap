@@ -220,6 +220,7 @@ exports[`GameInfo should render the game informations 1`] = `
 
 <div
   class="c0"
+  data-cy="game-info"
 >
   <h2
     class="c1"
@@ -242,11 +243,11 @@ exports[`GameInfo should render the game informations 1`] = `
     class="c5"
   >
     <button
+      aria-label="Add to cart"
       class="c6"
     >
       <svg
         aria-hidden="true"
-        aria-label="Add to cart"
         class="c7"
         fill="currentColor"
         focusable="false"
