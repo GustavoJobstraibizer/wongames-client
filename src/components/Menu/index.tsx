@@ -1,11 +1,11 @@
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
-import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import Button from 'components/Button'
 import CartDropdown from 'components/CartDropdown'
 import CartIcon from 'components/CartIcon'
 import Logo from 'components/Logo'
 import MediaMatch from 'components/MediaMatch'
+import SearchGames from 'components/SearchGames'
 import UserDropdown from 'components/UserDropdown'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -49,9 +49,7 @@ const Menu = ({ username, loading }: MenuProps) => {
       {!loading && (
         <>
           <S.MenuGroup>
-            <S.IconWrapper>
-              <SearchIcon aria-label="Search" />
-            </S.IconWrapper>
+            <SearchGames />
             <S.IconWrapper>
               <MediaMatch greaterThan="medium">
                 <CartDropdown />

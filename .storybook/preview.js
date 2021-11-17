@@ -5,7 +5,7 @@ import theme from 'styles/theme';
 import '../.jest/next-image.mock';
 
 export const decorators = [
-  (Story) => (
+  (Story, context) => (
     <ThemeProvider theme={theme}>
       <CartContext.Provider value={{
         ...CartContextDefaultValues,
