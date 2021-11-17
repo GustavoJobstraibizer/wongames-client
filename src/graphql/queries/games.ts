@@ -51,6 +51,21 @@ export const QUERY_GAME_BY_SLUG = gql`
   }
 `
 
+export const QUERY_SEARCH_GAMES = gql`
+  query QuerySearchGames(
+    $limit: Int
+    $start: Int
+    $where: JSON
+    $sort: String
+  ) {
+    games(limit: $limit, start: $start, where: $where, sort: $sort) {
+      ...GameFragment
+    }
+  }
+
+  ${GameFragment}
+`
+
 export function useQueryGames(
   options?: QueryHookOptions<QueryGames, QueryGamesVariables>
 ) {
