@@ -38,7 +38,7 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => {
         }}
       >
         <ExitToApp size={24} />
-        <span>Sign out</span>
+        <span>Sign Out</span>
       </S.Link>
     </S.Nav>
   )
